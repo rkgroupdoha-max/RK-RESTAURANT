@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R K RESTAURANT MUNTAZA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', 'Hind Siliguri', sans-serif;
+        }
+        [dir="rtl"] {
+            font-family: 'Cairo', 'Hind Siliguri', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Top Bar / Announcement -->
+    <div class="bg-amber-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium">
+        <span id="top-banner-text">📍 Muntaza Branch, Doha, Qatar | Hotline: 71066500 | CR-168853/1</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center space-x-3">
+                <img src="1000080232.png" alt="R K Restaurant Logo" class="h-14 w-14 rounded-full object-cover border-2 border-amber-500 shadow">
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold text-gray-900 tracking-wide">R K RESTAURANT</h1>
+                    <p class="text-xs text-amber-600 font-semibold">MUNTAZA, DOHA</p>
+                </div>
+            </div>
+
+            <!-- Navigation Links & Language Switcher -->
+            <div class="flex items-center space-x-4 sm:space-x-6">
+                <nav class="hidden md:flex space-x-6 text-sm font-medium text-gray-700">
+                    <a href="#menu" class="hover:text-amber-600 transition" data-translate="menu">Menu</a>
+                    <a href="#delivery" class="hover:text-amber-600 transition" data-translate="delivery">Delivery</a>
+                    <a href="#printer-section" class="hover:text-amber-600 transition" data-translate="posSystem">POS & Printer</a>
+                    <a href="#contact" class="hover:text-amber-600 transition" data-translate="contact">Contact</a>
+                </nav>
+
+                <!-- Language Dropdown -->
+                <select id="langSwitch" onchange="changeLanguage(this.value)" class="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg px-2.5 py-1.5 focus:ring-amber-500 focus:border-amber-500">
+                    <option value="bn">বাংলা</option>
+                    <option value="en" selected>English</option>
+                    <option value="ar">العربية</option>
+                </select>
+
+                <!-- Cart Button -->
+                <button onclick="toggleCart()" class="relative bg-amber-500 text-white p-2.5 rounded-full hover:bg-amber-600 transition shadow">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartCount" class="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Storefront Cover -->
+    <section class="relative bg-gray-900 text-white py-24 sm:py-32 bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('1000080606.jpg');">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4" data-translate="heroTitle">Authentic Taste & Quality Food</h2>
+            <p class="text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto mb-8" data-translate="heroSubtitle">Order delicious Biryani, Kacchi, Polao & more directly from our Muntaza branch with online payment & fast delivery.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#menu" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition" data-translate="orderNow">Order Now</a>
+                <a href="#contact" class="bg-white hover:bg-gray-100 text-gray-900 font-bold py-3 px-8 rounded-lg shadow-lg transition" data-translate="findUs">Find Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-2" data-translate="menuHeading">Our Special Menu</h3>
+            <p class="text-gray-600" data-translate="menuSubHeading">Freshly prepared everyday for you in Muntaza</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Item 1 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition">
+                <div class="h-48 bg-amber-100 flex items-center justify-center text-amber-800 text-4xl font-bold">🍛</div>
+                <div class="p-6">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold text-gray-900">Special Mutton Kacchi</h4>
+                        <span class="text-amber-600 font-bold text-lg">35.00 QAR</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Traditional slow-cooked aromatic rice with tender mutton pieces.</p>
+                    <button onclick="addToCart('Special Mutton Kacchi', 35.00)" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded-lg transition" data-translate="addToCart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition">
+                <div class="h-48 bg-amber-100 flex items-center justify-center text-amber-800 text-4xl font-bold">🍗</div>
+                <div class="p-6">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold text-gray-900">Chicken Dum Biryani</h4>
+                        <span class="text-amber-600 font-bold text-lg">25.00 QAR</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Flavorful basmati rice layered with spiced chicken and herbs.</p>
+                    <button onclick="addToCart('Chicken Dum Biryani', 25.00)" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded-lg transition" data-translate="addToCart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition">
+                <div class="h-48 bg-amber-100 flex items-center justify-center text-amber-800 text-4xl font-bold">🍲</div>
+                <div class="p-6">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h4 class="text-xl font-bold text-gray-900">Beef Afghani Polao</h4>
+                        <span class="text-amber-600 font-bold text-lg">28.00 QAR</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Special seasoned rice topped with juicy beef and carrots.</p>
+                    <button onclick="addToCart('Beef Afghani Polao', 28.00)" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded-lg transition" data-translate="addToCart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Area Management -->
+    <section id="delivery" class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-2" data-translate="deliveryHeading">Delivery Areas & Charges</h3>
+                <p class="text-gray-600" data-translate="deliverySubHeading">All orders are dispatched directly from our Muntaza Branch</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow text-center border-t-4 border-amber-500">
+                    <h4 class="font-bold text-lg mb-2">Al Muntazah</h4>
+                    <p class="text-sm text-gray-600 mb-4">Direct Branch Coverage</p>
+                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-semibold">Fast Delivery</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow text-center border-t-4 border-amber-500">
+                    <h4 class="font-bold text-lg mb-2">Al Mansoura</h4>
+                    <p class="text-sm text-gray-600 mb-4">Serviced from Muntaza Branch</p>
+                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-semibold">Standard Delivery</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow text-center border-t-4 border-amber-500">
+                    <h4 class="font-bold text-lg mb-2">Firoz Abdul Aziz & Doha</h4>
+                    <p class="text-sm text-gray-600 mb-4">Other approved zones</p>
+                    <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-semibold">Available</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Printer & POS Simulation Section -->
+    <section id="printer-section" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900" data-translate="posTitle">Thermal Printer & POS System Simulation</h3>
+                    <p class="text-gray-600 text-sm mt-1" data-translate="posSubTitle">Supports 3-copy printing (Kitchen, Cashier, Customer) via Bluetooth / Wi-Fi</p>
+                </div>
+                <div class="mt-4 md:mt-0 space-x-2">
+                    <button onclick="testPrint()" class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-medium transition">🖨️ Test Print</button>
+                </div>
+            </div>
+            <div id="printPreviewArea" class="bg-gray-50 border border-dashed border-gray-300 p-6 rounded-xl font-mono text-xs text-gray-700 max-w-md mx-auto">
+                <center>
+                    <p class="font-bold text-sm">R K RESTAURANT MUNTAZA</p>
+                    <p>Near By Dana Express | Mob: 71066500</p>
+                    <p>CR-168853/1</p>
+                    <p>-----------------------------------</p>
+                    <p><b>RECEIPT PREVIEW (3-Copy Mode)</b></p>
+                    <p>Kitchen Copy / Cash Counter / Customer</p>
+                    <p>-----------------------------------</p>
+                </center>
+                <p>Status: Ready for Bluetooth/Wi-Fi Print Integration</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+                <h4 class="text-lg font-bold mb-4 text-amber-500">R K RESTAURANT MUNTAZA</h4>
+                <p class="text-sm text-gray-400">Near By Dana Express, Doha, Qatar</p>
+                <p class="text-sm text-gray-400 mt-2">Phone: 71066500</p>
+                <p class="text-sm text-gray-400">CR: 168853/1</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4 text-amber-500" data-translate="quickLinks">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="#menu" class="hover:text-white" data-translate="menu">Menu</a></li>
+                    <li><a href="#delivery" class="hover:text-white" data-translate="delivery">Delivery</a></li>
+                    <li><a href="#printer-section" class="hover:text-white" data-translate="posSystem">POS System</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4 text-amber-500" data-translate="paymentGateway">Online Payment</h4>
+                <p class="text-sm text-gray-400" data-translate="paymentDesc">Secure Debit/Credit Card gateway integration supported for Qatar transactions (QAR).</p>
+                <div class="mt-4 flex space-x-2 text-2xl">
+                    <span>💳</span><span>🌐</span><span>🔒</span>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
+            &copy; 2026 R K RESTAURANT MUNTAZA. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer / Modal -->
+    <div id="cartModal" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50 transition-opacity" onclick="toggleCart()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <div class="p-6 bg-amber-600 text-white flex justify-between items-center">
+                    <h3 class="text-lg font-bold" data-translate="yourCart">Your Cart</h3>
+                    <button onclick="toggleCart()" class="text-white hover:text-gray-200 text-xl font-bold">&times;</button>
+                </div>
+                <div class="flex-1 overflow-y-auto p-6" id="cartItemsList">
+                    <p class="text-gray-500 text-center py-8" data-translate="cartEmpty">Your cart is empty.</p>
+                </div>
+                <div class="p-6 border-t border-gray-200 bg-gray-50">
+                    <div class="flex justify-between font-bold text-lg mb-4">
+                        <span data-translate="total">Total:</span>
+                        <span id="cartTotal">0.00 QAR</span>
+                    </div>
+                    <button onclick="checkout()" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-lg shadow transition" data-translate="checkout">Proceed to Online Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactivity & Multilingual support -->
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+            alert(name + " added to cart!");
+        }
+
+        function updateCartUI() {
+            const countElem = document.getElementById('cartCount');
+            const listElem = document.getElementById('cartItemsList');
+            const totalElem = document.getElementById('cartTotal');
+
+            let totalQty = 0;
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                listElem.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty.</p>';
+            } else {
+                listElem.innerHTML = '';
+                cart.forEach((item, index) => {
+                    totalQty += item.qty;
+                    totalPrice += item.price * item.qty;
+                    listElem.innerHTML += `
+                        <div class="flex justify-between items-center mb-4 pb-2 border-b">
+                            <div>
+                                <h5 class="font-bold text-sm">${item.name}</h5>
+                                <p class="text-xs text-gray-500">${item.price} QAR x ${item.qty}</p>
+                            </div>
+                            <button onclick="removeItem(${index})" class="text-red-500 hover:text-red-700 text-sm font-bold">✕</button>
+                        </div>
+                    `;
+                });
+            }
+            countElem.innerText = totalQty;
+            totalElem.innerText = totalPrice.toFixed(2) + " QAR";
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.classList.toggle('hidden');
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            alert("Redirecting to secure Qatar Payment Gateway...");
+            cart = [];
+            updateCartUI();
+            toggleCart();
+        }
+
+        function testPrint() {
+            alert("Test Print sent successfully to thermal printer (3-copy setup: Kitchen, Cashier, Customer)!");
+        }
+
+        // Translation Dictionary
+        const translations = {
+            en: {
+                menu: "Menu",
+                delivery: "Delivery",
+                posSystem: "POS & Printer",
+                contact: "Contact",
+                heroTitle: "Authentic Taste & Quality Food",
+                heroSubtitle: "Order delicious Biryani, Kacchi, Polao & more directly from our Muntaza branch with online payment & fast delivery.",
+                orderNow: "Order Now",
+                findUs: "Find Us",
+                menuHeading: "Our Special Menu",
+                menuSubHeading: "Freshly prepared everyday for you in Muntaza",
+                addToCart: "Add to Cart",
+                deliveryHeading: "Delivery Areas & Charges",
+                deliverySubHeading: "All orders are dispatched directly from our Muntaza Branch",
+                posTitle: "Thermal Printer & POS System Simulation",
+                posSubTitle: "Supports 3-copy printing (Kitchen, Cashier, Customer) via Bluetooth / Wi-Fi",
+                quickLinks: "Quick Links",
+                paymentGateway: "Online Payment",
+                paymentDesc: "Secure Debit/Credit Card gateway integration supported for Qatar transactions (QAR).",
+                yourCart: "Your Cart",
+                cartEmpty: "Your cart is empty.",
+                total: "Total:",
+                checkout: "Proceed to Online Payment"
+            },
+            bn: {
+                menu: "মেনু",
+                delivery: "ডেলিভারি",
+                posSystem: "পিওএস ও প্রিন্টার",
+                contact: "যোগাযোগ",
+                heroTitle: "আসল স্বাদ এবং মানসম্মত খাবার",
+                heroSubtitle: "আমাদের মান্তাজা শাখা থেকে অনলাইন পেমেন্ট ও দ্রুত ডেলিভারিসহ অর্ডার করুন সুস্বাদু বিরিয়ানি, কাচ্চি, পোলাও এবং আরও অনেক কিছু।",
+                orderNow: "অর্ডার করুন",
+                findUs: "আমাদের খুঁজুন",
+                menuHeading: "আমাদের বিশেষ মেনু",
+                menuSubHeading: "মান্তাজায় প্রতিদিন আপনার জন্য তাজা প্রস্তুতকৃত",
+                addToCart: "কার্টে যোগ করুন",
+                deliveryHeading: "ডেলিভারি এলাকা ও চার্জ",
+                deliverySubHeading: "সকল অর্ডার সরাসরি মান্তাজা শাখা থেকে পাঠানো হয়",
+                posTitle: "থার্মাল প্রিন্টার ও পিওএস সিস্টেম সিমুলেশন",
+                posSubTitle: "ব্লুটুথ / ওয়াইফাই এর মাধ্যমে ৩-কপি প্রিন্টিং (কিচেন, ক্যাশিয়ার, কাস্টমার) সমর্থন করে",
+                quickLinks: "দ্রুত লিঙ্ক",
+                paymentGateway: "অনলাইন পেমেন্ট",
+                paymentDesc: "কাতার লেনদেনের জন্য সুরক্ষিত ডেবিট/ক্রেডিট কার্ড গেটওয়ে ইন্টিগ্রেশন সমর্থিত (QAR)।",
+                yourCart: "আপনার কার্ট",
+                cartEmpty: "আপনার কার্ট খালি রয়েছে।",
+                total: "মোট:",
+                checkout: "অনলাইন পেমেন্টে যান"
+            },
+            ar: {
+                menu: "القائمة",
+                delivery: "التوصيل",
+                posSystem: "نظام النقاط والطابعة",
+                contact: "اتصل بنا",
+                heroTitle: "طعم أصيل وطعام عالي الجودة",
+                heroSubtitle: "اطلب أشهى المأكولات مباشرة من فرع المنتزة مع الدفع الإلكتروني والتوصيل السريع.",
+                orderNow: "اطلب الآن",
+                findUs: "موقعنا",
+                menuHeading: "قائمتنا المميزة",
+                menuSubHeading: "تحضر طازجة يومياً من أجلك في المنتزة",
+                addToCart: "أضف إلى السلة",
+                deliveryHeading: "مناطق التوصيل والرسوم",
+                deliverySubHeading: "يتم إرسال جميع الطلبات مباشرة من فرع المنتزة",
+                posTitle: "محاكاة طابعة الحرارة ونظام النقاط",
+                posSubTitle: "يدعم طباعة 3 نسخ (المطبخ، الكشير، العميل) عبر البلوتوث / واي فاي",
+                quickLinks: "روابط سريعة",
+                paymentGateway: "الدفع الإلكتروني",
+                paymentDesc: "دعم بوابة الدفع ببطاقات الخصم/الائتمان الآمنة لمعاملات قطر (QAR).",
+                yourCart: "سلة التسوق",
+                cartEmpty: "سلة التسوق فارغة.",
+                total: "المجموع:",
+                checkout: "الانتقال إلى الدفع الإلكتروني"
+            }
+        };
+
+        function changeLanguage(lang) {
+            const html = document.documentElement;
+            if (lang === 'ar') {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+            } else {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', lang);
+            }
+
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
